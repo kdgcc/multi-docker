@@ -15,7 +15,7 @@ after_success:
   - docker build -t kdgcc/multi-worker ./worker
 
 # Log in to the docker CLI
-- echo "$DOCKER_PASS" | docker login -u "$DOCKER_ID" --password-stdin
+- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
 # take those images and push to docker hub
 - docker push kdgcc/multi-client

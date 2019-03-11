@@ -13,12 +13,10 @@ after_success:
   - docker build -t kdgcc/multi-nginx ./nginx
   - docker build -t kdgcc/multi-server ./server
   - docker build -t kdgcc/multi-worker ./worker
-
-# Log in to the docker CLI
-- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-
-# take those images and push to docker hub
-- docker push kdgcc/multi-client
-- docker push kdgcc/multi-nginx
-- docker push kdgcc/multi-server
-- docker push kdgcc/multi-worker
+  # Log in to the docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # take those images and push to docker hub
+  - docker push kdgcc/multi-client
+  - docker push kdgcc/multi-nginx
+  - docker push kdgcc/multi-server
+  - docker push kdgcc/multi-worker

@@ -1,0 +1,35 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "client",
+      "image": "kdgcc/multi-client",
+      "hostname": "client",
+      "essentials": false
+    },
+    {
+      "name": "server",
+      "image": "kdgcc/multi-server",
+      "hostname": "api",
+      "essentials": false
+    },
+    {
+      "name": "worker",
+      "image": "kdgcc/multi-worker",
+      "hostname": "worker",
+      "essentials": false
+    },
+    {
+      "name": "nginx",
+      "image": "kdgcc/multi-nginx",
+      "essentials": true,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ],
+      "links": ["client", "server"]
+    }
+  ]
+}
